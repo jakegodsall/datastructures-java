@@ -1,6 +1,6 @@
 package org.example.linkedlist;
 
-public class SinglyLinkedList<E> {
+public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private static class Node<E> {
         private E data; // reference to the element stored at this node
@@ -26,21 +26,25 @@ public class SinglyLinkedList<E> {
 
     public SinglyLinkedList() { }
 
-    // access methods
+    @Override
     public int size() { return this.size; }
+
+    @Override
     public boolean isEmpty() { return size == 0; }
 
+    @Override
     public E first() {
         if (isEmpty()) return null;
         return head.getData();
     }
 
+    @Override
     public E last() {
         if (isEmpty()) return null;
         return tail.getData();
     }
 
-    // update methods
+    @Override
     public void addFirst(E e) {
         Node<E> newNode = new Node<>(e); // Create a new node with the given value
         newNode.setNext(head); // Set the `next` of the new node to point to the current head
@@ -50,6 +54,7 @@ public class SinglyLinkedList<E> {
         size++; // Increase the size of the linked list
     }
 
+    @Override
     public void addLast(E e) {
         Node<E> newNode = new Node<>(e); // Create a new node with the given value
         if (isEmpty()) // If the list is empty, set the head as the new node
@@ -60,6 +65,7 @@ public class SinglyLinkedList<E> {
         size++; // Increase the size of the linked list
     }
 
+    @Override
     public E removeFirst() {
         if (isEmpty()) return null; // if the list is empty there is nothing to remove
         E data = head.getData();
@@ -72,6 +78,11 @@ public class SinglyLinkedList<E> {
         }
         size--;
         return data;
+    }
+
+    @Override
+    public E removeLast() {
+        return null;
     }
 
 }
