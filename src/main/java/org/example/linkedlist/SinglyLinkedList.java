@@ -82,7 +82,26 @@ public class SinglyLinkedList<E> implements LinkedList<E> {
 
     @Override
     public E removeLast() {
-        return null;
+        if (size == 0) return null; // if the list is empty there is nothing to remove
+        if (size == 1) {
+            E data = head.getData();
+            head = null;
+            tail = null;
+            size--;
+            return data;
+        } else {
+            Node<E> temp = head;
+            Node<E> delay = head;
+            while (temp.next != null) { // loop until reaching the penultimate element
+                delay = temp;
+                temp = temp.next;
+            }
+            delay.next = null;
+            tail = delay; // update the tail reference
+            E data = temp.getData();
+            size--;
+            return data;
+        }
     }
 
 }
