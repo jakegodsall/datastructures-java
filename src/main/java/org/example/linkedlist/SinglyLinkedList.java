@@ -62,9 +62,16 @@ public class SinglyLinkedList<E> {
 
     public E removeFirst() {
         if (isEmpty()) return null; // if the list is empty there is nothing to remove
+        E data = head.getData();
         if (size == 1) {
-            w
+            head = null;
+            tail = null;
+        } else {
+            head = head.getNext();
+
         }
+        size--;
+        return data;
     }
 
 }
