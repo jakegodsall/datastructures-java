@@ -3,19 +3,19 @@ package org.example.linkedlist;
 public class SinglyLinkedList<E> implements LinkedList<E> {
 
     private static class Node<E> {
-        private E data; // reference to the element stored at this node
+        private E value; // reference to the element stored at this node
         private Node<E> next; // reference to the subsequent node int the list
 
-        public Node(E data) {
-            this.data = data;
+        public Node(E value) {
+            this.value = value;
             this.next = null;
         }
 
-        public E getData() { return this.data; }
+        public E getData() { return this.value; }
 
         public Node<E> getNext() { return this.next; }
 
-        public void setData(E data) { this.data = data; }
+        public void setData(E value) { this.value = value; }
 
         public void setNext(Node<E> next) { this.next = next; }
     }
